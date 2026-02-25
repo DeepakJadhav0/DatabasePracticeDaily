@@ -1,0 +1,52 @@
+----------  MYSQL
+
+Task 1 - Show all databases.
+
+SHOW DATABASES;
+
+Task 2 - Create Database collage
+
+CREATE DATABASE collage ; 
+
+Task 3 - Delete Database any
+
+DROP DATABASE collage ;
+
+Task 4 - Use Database
+
+use college;
+
+Task 5 - Create a table named students with columns:
+id , name , age , classa 
+
+CREATE TABLE students(
+	id INT AUTO_INCREMENT PRIMARY KEY ,
+    name VARCHAR(50) NOT NULL,
+    age INT NOT NULL,
+    class INT NOT NULL
+);
+
+------------- MONGODB
+
+Task 1 - Show all databases.
+
+show databases
+
+Task 2 - Create / switch to a database named company.
+
+use companey
+
+Task 3 - Insert one document into employees collection with: name age salary
+
+db.employee.insertOne({name : "Deepak Jadhav" , age : 20 , salary : 30000})
+
+Task 4 - Insert two more employee documents.
+
+db.employee.insertMany([
+    {name : "roman Reigns" , age : 30 , salary : 50000},
+    {name : "John cena" , age : 32 , salary : 20000}
+])
+
+Task 5 - Display all documents from employees collection.
+
+db.employee.find()
