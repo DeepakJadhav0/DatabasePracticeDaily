@@ -1,0 +1,118 @@
+---------------------------MYSQL
+
+CREATE DATABASE company;
+
+use company;
+
+CREATE TABLE employee(
+	id INT PRIMARY KEY,
+    name VARCHAR(50) NOT NULL,
+    age INT ,
+    salary VARCHAR(50) NOT NULL
+);
+
+INSERT INTO employee (id, name, age, salary) VALUES
+(1, 'Alice Johnson', 28, 55000),
+(2, 'Bob Smith', 34, 72000),
+(3, 'Charlie Brown', 25, 48000),
+(4, 'David Wilson', 40, 88000),
+(5, 'Emma Davis', 30, 61000),
+(6, 'Frank Miller', 45, 95000),
+(7, 'Grace Lee', 27, 53000),
+(8, 'Henry Taylor', 38, 79000),
+(9, 'Isabella Anderson', 29, 60000),
+(10, 'Jack Thomas', 32, 67000),
+(11, 'Karen White', 41, 91000),
+(12, 'Liam Harris', 26, 50000),
+(13, 'Mia Martin', 31, 64000),
+(14, 'Noah Thompson', 36, 75000),
+(15, 'Olivia Garcia', 33, 70000),
+(16, 'Paul Martinez', 39, 82000),
+(17, 'Quinn Robinson', 24, 45000),
+(18, 'Sophia Clark', 28, 56000),
+(19, 'Thomas Rodriguez', 42, 93000),
+(20, 'Uma Lewis', 35, 73000);
+
+Task 1 - Select all records from employees.
+
+SELECT * FROM employee;
+
+Task 2 - Select only name and salary columns.
+
+SELECT name , salary FROM employee;
+
+Task 3 - Find employees whose age is 25.
+
+SELECT * FROM employee
+WHERE age = 25;
+
+Task 4 - Find employees whose salary is greater than 80000.
+
+SELECT * FROM employee
+WHERE salary > 80000;
+
+Task 5 - Find employees whose age is greater than 22 AND salary is greater than 40000.
+
+SELECT * FROM employee
+WHERE age > 22 AND salary > 80000;
+
+-------------------- MONGODB 
+
+use company
+
+switched to db company
+
+db.employees.insertMany([
+  { name: "Alice Johnson", age: 28, salary: 55000 },
+  { name: "Bob Smith", age: 34, salary: 72000 },
+  { name: "Charlie Brown", age: 25, salary: 48000 },
+  { name: "David Wilson", age: 40, salary: 88000 },
+  { name: "Emma Davis", age: 30, salary: 61000 },
+  { name: "Frank Miller", age: 45, salary: 95000 },
+  { name: "Grace Lee", age: 27, salary: 53000 },
+  { name: "Henry Taylor", age: 38, salary: 79000 },
+  { name: "Isabella Anderson", age: 29, salary: 60000 },
+  { name: "Jack Thomas", age: 32, salary: 67000 },
+  { name: "Karen White", age: 41, salary: 91000 },
+  { name: "Liam Harris", age: 26, salary: 50000 },
+  { name: "Mia Martin", age: 31, salary: 64000 },
+  { name: "Noah Thompson", age: 36, salary: 75000 },
+  { name: "Olivia Garcia", age: 33, salary: 70000 },
+  { name: "Paul Martinez", age: 39, salary: 82000 },
+  { name: "Quinn Robinson", age: 24, salary: 45000 },
+  { name: "Sophia Clark", age: 28, salary: 56000 },
+  { name: "Thomas Rodriguez", age: 42, salary: 93000 },
+  { name: "Uma Lewis", age: 35, salary: 73000 }
+]);
+
+Task 1 - Find all documents from employees.
+
+db.employees.find()
+
+Task 2 - Find only name and salary fields.
+
+db.employees.find({},{name : 1 , salary : 1 , _id : 0})
+
+Task 3 - Find employees whose age is 25.
+
+db.employees.find({age : 25})
+
+Task 4 - Find employees whose salary is greater than 80000.
+
+db.employees.find({salary : {$gt : 80000}})
+
+Task 5 - Find employees whose age is greater than 22 AND salary is greater than 80000.
+
+db.employees.find({
+    age : {$gt : 25},
+    salary : {$gt : 80000}
+})
+
+OR 
+
+db.employees.find({
+    $and : [
+        {age : {$gt : 25}},
+        {salary : {$gt : 80000}}
+    ]
+})
