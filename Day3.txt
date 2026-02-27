@@ -1,0 +1,78 @@
+------------------- MYSQL 
+
+Task 1  -Create database named college_db.
+
+CREATE DATABASE collage_db
+
+Task 2 - Create table students with:
+id (Primary Key, Auto Increment)
+name (Not Null)
+age
+department
+marks
+
+CREATE TABLE students(
+    id INT PRIMARY KEY,
+    name VARCHAR(50) NOT NULL,
+    age INT,
+    department VARCHAR(50) NOT NULL,
+    marks INT
+);
+
+Task 3 - Add a new column email.
+
+ALTER TABLE students
+ADD COLUMN email VARCHAR(50) UNIQUE;
+
+Task 4 - Modify marks column to NOT NULL.
+
+ALTER TABLE students
+MODIFY marks INT NOT NULL;
+
+Task 5 - Create another table courses with:
+course_id (Primary Key)
+course_name
+duration
+
+CREATE TABLE courses(
+    course_id INT PRIMARY KEY,
+    course_name VARCHAR(50),
+    duration VARCHAR(50)
+);
+
+-------------------- MONGODB
+
+Task 1 - Create database collegeDB.
+
+use collage_db
+
+Task 2 - Create collection students.
+
+db.createCollection("students")
+
+Task 3 - Insert one student document with:
+name
+age
+department
+marks
+
+db.students.insertOne({
+    name : "Deepak Jadhav",
+    age : 10,
+    department : "CSE",
+    marks : 101
+});
+
+Task 4 - Insert another student but add new field email.
+
+db.students.insertOne({
+    name : "Roman Reigns ",
+    age : 20,
+    department : "ECE",
+    marks : 190,
+    email : "Roman@gmail.com"
+});
+
+Task 5 - Drop the students collection.
+
+db.students.drop()
